@@ -1,5 +1,6 @@
 package com.fangio.backend.auth;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,9 +29,9 @@ public class AuthController {
         try{
             String responseMessage = authService.register(registerDto);
 
-            return new ResponseEntity<>(responseMessage, HttpStatus, CREATED);
+            return new ResponseEntity<>(responseMessage, HttpStatus.CREATED);
         } catch (IllegalArgumentException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus, BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
