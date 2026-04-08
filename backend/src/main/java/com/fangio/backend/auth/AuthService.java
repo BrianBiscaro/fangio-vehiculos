@@ -1,13 +1,13 @@
 package com.fangio.backend.auth;
 
-import org.springframework.context.support.BeanDefinitionDsl.Role;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.fangio.backend.security.JwtTokenProvider;
 
 @Service
 public class AuthService implements IAuthService{
@@ -56,9 +56,8 @@ public class AuthService implements IAuthService{
 
         User user = new User();
         user.setUsername(registerDto.getUsername());
-        user.setEmail(registerDto.getEmail());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
-        user.setRole(Role.valueOf("INSTRUCTOR"));
+        user.setRole(Role.USER);
 
         userRepository.save(user);
 
