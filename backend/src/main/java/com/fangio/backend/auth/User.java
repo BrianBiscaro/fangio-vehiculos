@@ -3,7 +3,6 @@ package com.fangio.backend.auth;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.el.parser.JJTELParserState;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
