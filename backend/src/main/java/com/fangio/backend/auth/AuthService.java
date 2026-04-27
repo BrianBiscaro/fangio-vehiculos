@@ -57,7 +57,7 @@ public class AuthService implements IAuthService{
         User user = new User();
         user.setUsername(registerDto.getUsername());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
-        user.setRole(Role.USER);
+        user.setRole(Role.INSTRUCTOR);
 
         userRepository.save(user);
 
