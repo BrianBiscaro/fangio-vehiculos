@@ -3,6 +3,7 @@ package com.fangio.backend.security;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,6 +25,9 @@ public class SecurityConfig {
 
         @Autowired
         private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+        @Value("${cors.allowed-origins}")
+        private List<String> allowedOrigins;
 
         @Bean
         public PasswordEncoder passwordEncoder() {
@@ -62,8 +66,7 @@ public class SecurityConfig {
                 CorsConfiguration configuration = new CorsConfiguration();
                 UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
-                configuration.setAllowedOrigins(
-                                List.of("http://localhost:5173"));
+                configuration.setAllowedOrigins(allowedOrigins);
                 configuration.setAllowedMethods(
                                 List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                 configuration.setAllowedHeaders(
