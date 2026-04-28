@@ -8,6 +8,6 @@ export const loginService = async (credentials) => {
 
 export const registerService = async (userData) => {
 
-    const response = await api.post('auth/register', userData);
+    const response = await api.post('/admin/instructores/crear', userData);
     return response.data;
 };

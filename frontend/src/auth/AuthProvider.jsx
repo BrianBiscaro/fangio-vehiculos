@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { loginService } from './authService'
+import { AuthContext } from './AuthContext'
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(() => {
@@ -16,7 +17,8 @@ export const AuthProvider = ({ children }) => {
 
             const userData = {
                 username: data.username,
-                email: data.email
+                email: data.email,
+                role: data.role
             };
 
             localStorage.setItem('jwt_token', data.token);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from '../auth/useAuth';
 
 const LoginPage = () => {
@@ -17,7 +17,7 @@ const LoginPage = () => {
 
         const success = await login({ username, password });
         if (success) {
-            navigate('/home');
+            navigate('/dashboard');
         } else {
             setError('Credenciales inválidas');
         }
@@ -53,8 +53,6 @@ const LoginPage = () => {
                     Entrar
                 </button>
             </form>
-
-            <p>Si no tienes una cuenta, <Link to="/register"> Registrate aquí </Link></p>
         </div>
     );
 };

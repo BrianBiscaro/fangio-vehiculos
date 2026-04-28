@@ -1,8 +1,10 @@
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
-import DashBoard from './pages/Dashboard';
-import AuthProvider from './auth/AuthProvider';
+import Dashboard from './pages/Dashboard';
+import { AuthProvider } from './auth/AuthProvider';
+import ProtectedRoute from './auth/ProtectedRoute';
 
 function App() {
   return (
