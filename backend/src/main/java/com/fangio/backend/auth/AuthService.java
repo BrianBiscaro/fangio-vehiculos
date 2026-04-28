@@ -10,36 +10,34 @@ import org.springframework.stereotype.Service;
 import com.fangio.backend.security.JwtTokenProvider;
 
 @Service
-public class AuthService implements IAuthService{
+public class AuthService implements IAuthService {
 
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
 
-
-    public AuthService(AuthenticationManager authenticationManager, UserRepository userRepository, PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider){
+    public AuthService(AuthenticationManager authenticationManager, UserRepository userRepository,
+            PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
-
     @Override
     public AuthResponse login(LoginRequest loginDto) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword())
-        );
+        Authentication authentication = authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = jwtTokenProvider.generateToken(authentication);
 
         User user = userRepository.findByUsername(loginDto.getUsername())
-        .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-        return new AuthResponse(token, user.getUsername(), user.getEmail());
-
+        return new AuthResponse(token, user.getUsername(), user.getEmail(), user.getRole().name());
 
     }
 
@@ -50,14 +48,14 @@ public class AuthService implements IAuthService{
             throw new IllegalArgumentException("Username already register");
         }
 
-        if (userRepository.existsByEmail(registerDto.getEmail())){
+        if (userRepository.existsByEmail(registerDto.getEmail())) {
             throw new IllegalArgumentException("Email already exists");
         }
 
         User user = new User();
         user.setUsername(registerDto.getUsername());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
-        user.setRole(Role.USER);
+        user.setRole(Role.INSTRUCTOR);
 
         userRepository.save(user);
 

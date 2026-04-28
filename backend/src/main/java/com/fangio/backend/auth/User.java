@@ -1,13 +1,5 @@
 package com.fangio.backend.auth;
 
-import java.util.Collection;
-import java.util.List;
-
-import org.apache.el.parser.JJTELParserState;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -27,8 +19,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
-public class User implements UserDetails {
+@Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }) })
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +28,7 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private String username;
-    
+
     @Column(nullable = false)
     private String password;
 
@@ -45,9 +37,4 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
-    }
 }
