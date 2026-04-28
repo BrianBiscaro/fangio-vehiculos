@@ -7,6 +7,7 @@ frontend/.env
 backend/target/
 backend/.mvn/
 backend/*.jar
+backend/.env
 
 # IDEs y SO
 .idea/
