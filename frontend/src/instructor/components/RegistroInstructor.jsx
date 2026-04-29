@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { registerService } from "../auth/authService";
+import { registerService } from "../../auth/services/authService";
+import './Instructor.css';
 
 const RegisterInstructor = () => {
     const [formData, setFormData] = useState({
