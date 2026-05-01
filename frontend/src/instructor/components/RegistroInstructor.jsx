@@ -36,38 +36,64 @@ const RegisterInstructor = () => {
     };
 
     return (
-        <div style={{ border: '1px solid #ccc', padding: '20px', marginTop: '20px' }}>
-            <h3>Alta de Nuevo Instructor</h3>
+        <div className="nuevo-instructor-page">
+            <h1>Alta de Nuevo Instructor</h1>
 
-            {mensaje && <p style={{ color: 'green', fontWeight: 'bold' }}>{mensaje}</p>}
-            {error && <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>}
+            {mensaje && <div className="mensaje-exito">{mensaje}</div>}
+            {error && <div className="mensaje-error">{error}</div>}
 
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '300px' }}>
-                <input
-                    type="text" name="username" placeholder="Usuario (ej: jpezzota)"
-                    value={formData.username} onChange={handleChange} required
-                />
-                <input
-                    type="text" name="nombre" placeholder="Nombre"
-                    value={formData.nombre} onChange={handleChange} required
-                />
-                <input
-                    type="text" name="apellido" placeholder="Apellido"
-                    value={formData.apellido} onChange={handleChange} required
-                />
-                <input
-                    type="text" name="telefono" placeholder="Teléfono (opcional)"
-                    value={formData.telefono} onChange={handleChange}
-                />
-                <input
-                    type="email" name="email" placeholder="Correo electrónico"
-                    value={formData.email} onChange={handleChange} required
-                />
-                <input
-                    type="password" name="password" placeholder="Contraseña temporal"
-                    value={formData.password} onChange={handleChange} required
-                />
-                <button type="submit">Registrar Instructor</button>
+            <form className="instructor-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="username">Usuario</label>
+                    <input
+                        id="username"
+                        type="text" name="username" placeholder="Usuario (ej: jpezzota)"
+                        value={formData.username} onChange={handleChange} required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="nombre">Nombre</label>
+                    <input
+                        id="nombre"
+                        type="text" name="nombre" placeholder="Nombre"
+                        value={formData.nombre} onChange={handleChange} required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="apellido">Apellido</label>
+                    <input
+                        id="apellido"
+                        type="text" name="apellido" placeholder="Apellido"
+                        value={formData.apellido} onChange={handleChange} required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="telefono">Teléfono (opcional)</label>
+                    <input
+                        id="telefono"
+                        type="text" name="telefono" placeholder="Teléfono"
+                        value={formData.telefono} onChange={handleChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Correo electrónico</label>
+                    <input
+                        id="email"
+                        type="email" name="email" placeholder="Correo electrónico"
+                        value={formData.email} onChange={handleChange} required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Contraseña temporal</label>
+                    <input
+                        id="password"
+                        type="password" name="password" placeholder="Contraseña temporal"
+                        value={formData.password} onChange={handleChange} required
+                    />
+                </div>
+                <div className="form-buttons">
+                    <button type="submit" className="btn btn-primary">Registrar Instructor</button>
+                </div>
             </form>
         </div>
     );

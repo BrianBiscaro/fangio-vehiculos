@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../auth/hooks/useAuth';
 import useInstructor from '../instructor/hooks/useInstructor';
+import './InstructorPanel.css';
 
 const InstructorPanel = () => {
     const { user } = useAuth();
@@ -26,12 +28,12 @@ const InstructorPanel = () => {
         fetchProximasReservas();
     };
 
-    if (loading) return <div>Cargando...</div>;
+    if (loading) return <div className="loading">Cargando...</div>;
 
     return (
-        <div className="instructor-panel">
+        <section className="instructor-panel">
             <h1>Panel del Instructor</h1>
-            <p>Bienvenido, {user?.nombre}</p>
+            <p className="bienvenida">Bienvenido, {user?.nombre}</p>
 
             <div className="tabs">
                 <button
@@ -50,15 +52,17 @@ const InstructorPanel = () => {
 
             <div className="reservas-list">
                 {reservas.length === 0 ? (
-                    <p>No hay reservas</p>
+                    <div className="empty-state">
+                        <p>No hay reservas</p>
+                    </div>
                 ) : (
                     reservas.map((reserva) => (
-                        <div key={reserva.id} className="reserva-card">
+                        <article key={reserva.id} className="reserva-card">
                             <h3>{reserva.vehiculo?.marca} {reserva.vehiculo?.modelo}</h3>
-                            <p>Fecha: {new Date(reserva.fecha).toLocaleDateString()}</p>
-                            <p>Hora: {reserva.hora}</p>
-                            <p>Cliente: {reserva.cliente?.nombre} {reserva.cliente?.apellido}</p>
-                            <p>Estado: {reserva.estado}</p>
+                            <p><strong>Fecha:</strong> {new Date(reserva.fecha).toLocaleDateString()}</p>
+                            <p><strong>Hora:</strong> {reserva.hora}</p>
+                            <p><strong>Cliente:</strong> {reserva.cliente?.nombre} {reserva.cliente?.apellido}</p>
+                            <span className={`estado ${reserva.estado}`}>{reserva.estado}</span>
 
                             {activeTab === 'proximas' && reserva.estado === 'pendiente' && (
                                 <div className="acciones">
@@ -70,11 +74,11 @@ const InstructorPanel = () => {
                                     </button>
                                 </div>
                             )}
-                        </div>
+                        </article>
                     ))
                 )}
             </div>
-        </div>
+        </section>
     );
 };
 

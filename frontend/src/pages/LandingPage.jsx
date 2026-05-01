@@ -4,21 +4,24 @@ import SobreNosotros from './SobreNosotros';
 import Servicios from './Servicios';
 import Testimonios from './Testimonios';
 import Contacto from './Contacto';
+import './LandingPage.css';
 
 
 const LandingPage = () => {
 
     return (
-        <div className="landing-page">
+        <main className='landing-page'>
             <Header />
 
-            <SobreNosotros />
+            <section id="inicio" className="hero-section">
+                <SobreNosotros />
+            </section>
             <Servicios />
             <Testimonios />
             <Contacto />
 
             <Footer />
-        </div>
+        </main>
     )
 }
 

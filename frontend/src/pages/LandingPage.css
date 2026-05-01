@@ -1,0 +1,8 @@
+.hero-section {
+    background-image: url('../../public/banner-2x1920.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}

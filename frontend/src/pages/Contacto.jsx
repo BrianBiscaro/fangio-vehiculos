@@ -1,7 +1,9 @@
+import './Contacto.css';
+
 const Contacto = () => {
 
     return (
-        <section className="contacto" id="contacto">
+        <section id="contacto">
             <h2>Contacto</h2>
             <p>¿Tienes preguntas o quieres saber más? ¡Contáctanos!</p>
             <form className="contacto-form">

@@ -1,5 +1,6 @@
 import { useAuth } from '../auth/hooks/useAuth';
-import RegisterInstructor from '../instructor/components/RegistroInstructor';
+import AdminPanel from './AdminPanel';
+import InstructorPanel from './InstructorPanel';
 
 const Dashboard = () => {
     const { user, logout } = useAuth();

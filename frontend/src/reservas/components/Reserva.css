@@ -4,7 +4,7 @@
 .reserva-publica-page {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: var(--spacing-xl);
 }
 
 .reserva-publica-page h1 {
@@ -19,7 +19,7 @@
 
 .reserva-publica-page .step h2 {
     font-size: 1.25rem;
-    color: var(--color-text);
+    color: var(--color-text-h);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--color-primary);
@@ -35,7 +35,7 @@
 .opcion-card {
     background: var(--color-bg-card);
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
     border: 2px solid var(--color-border);
     cursor: pointer;
     transition: all var(--transition-fast);
@@ -54,7 +54,7 @@
 
 .opcion-card h3 {
     margin: 0 0 0.5rem 0;
-    color: var(--color-text);
+    color: var(--color-text-h);
     font-size: 1rem;
 }
 
@@ -76,10 +76,11 @@
     padding: 0.5rem;
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     cursor: pointer;
     transition: all var(--transition-fast);
     font-size: 0.875rem;
+    color: var(--color-text);
 }
 
 .horario-btn:hover {
@@ -102,25 +103,27 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-text-h);
 }
 
 .reserva-publica-page .form-group input {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     border: 1px solid var(--color-border);
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     font-size: 1rem;
+    background: var(--color-bg);
+    color: var(--color-text);
 }
 
 .reserva-publica-page .form-group input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px var(--color-primary-light);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
 /* Confirm Button */
-.reserva-publica-page > button {
+.reserva-publica-page>button {
     display: block;
     width: 100%;
     max-width: 300px;
@@ -129,27 +132,27 @@
     background: var(--color-primary);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     font-size: 1.125rem;
     font-weight: 600;
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
-.reserva-publica-page > button:hover:not(:disabled) {
+.reserva-publica-page>button:hover:not(:disabled) {
     background: var(--color-primary-dark);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
-.reserva-publica-page > button:disabled {
+.reserva-publica-page>button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
 
 /* Reservas Admin Page */
 .reservas-admin-page {
-    padding: 2rem;
+    padding: var(--spacing-xl);
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -167,10 +170,11 @@
 .filtros select {
     padding: 0.5rem 1rem;
     border: 1px solid var(--color-border);
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     font-size: 1rem;
     background: var(--color-bg-card);
     cursor: pointer;
+    color: var(--color-text);
 }
 
 .filtros select:focus {
@@ -187,14 +191,14 @@
 .reserva-card {
     background: var(--color-bg-card);
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     border-left: 4px solid var(--color-primary);
 }
 
 .reserva-card h3 {
     margin: 0 0 0.5rem 0;
-    color: var(--color-text);
+    color: var(--color-text-h);
 }
 
 .reserva-card p {
@@ -233,7 +237,7 @@
 .acciones button {
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     font-size: 0.875rem;
     cursor: pointer;
     transition: all var(--transition-fast);
@@ -263,4 +267,92 @@
     text-align: center;
     padding: 2rem;
     color: var(--color-text-secondary);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+    .reserva-publica-page {
+        padding: var(--spacing-lg);
+    }
+
+    .opciones-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    .horarios-grid {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    }
+
+    .reservas-admin-page {
+        padding: var(--spacing-lg);
+    }
+
+    .reserva-card {
+        padding: 1.25rem;
+    }
+
+    .acciones {
+        flex-wrap: wrap;
+    }
+
+    .acciones button {
+        flex: 1;
+        min-width: 80px;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 640px) {
+    .reserva-publica-page {
+        padding: var(--spacing-md);
+    }
+
+    .reserva-publica-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .opciones-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .horarios-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .horario-btn {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .reserva-publica-page>button {
+        max-width: 100%;
+    }
+
+    .reservas-admin-page {
+        padding: var(--spacing-md);
+    }
+
+    .reservas-admin-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .filtros {
+        overflow-x: auto;
+    }
+
+    .reservas-list {
+        gap: 0.75rem;
+    }
+
+    .reserva-card {
+        padding: 1rem;
+    }
+
+    .acciones {
+        flex-direction: column;
+    }
+
+    .acciones button {
+        width: 100%;
+    }
 }
