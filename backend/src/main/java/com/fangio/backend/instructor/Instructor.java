@@ -1,6 +1,10 @@
 package com.fangio.backend.instructor;
 
+import java.util.List;
+
 import com.fangio.backend.auth.User;
+import com.fangio.backend.reserva.Reserva;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,4 +34,7 @@ public class Instructor {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, unique = true)
     private User user;
+
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Reserva> reservas;
 }
