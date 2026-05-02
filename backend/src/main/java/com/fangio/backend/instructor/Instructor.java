@@ -31,6 +31,9 @@ public class Instructor {
 
     private String telefono;
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, unique = true)
     private User user;
