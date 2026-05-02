@@ -6,7 +6,7 @@ export const useVehiculos = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Obtener todos los vehículos (admin)
+   
     const fetchVehiculos = useCallback(async () => {
         setLoading(true);
         setError(null);
@@ -21,7 +21,7 @@ export const useVehiculos = () => {
         }
     }, []);
 
-    // Obtener vehículos disponibles (público)
+
     const fetchDisponibles = useCallback(async () => {
         setLoading(true);
         setError(null);
@@ -36,7 +36,7 @@ export const useVehiculos = () => {
         }
     }, []);
 
-    // Crear nuevo vehículo (admin)
+    
     const createVehiculo = useCallback(async (data) => {
         setLoading(true);
         setError(null);
@@ -52,7 +52,7 @@ export const useVehiculos = () => {
         }
     }, []);
 
-    // Actualizar vehículo (admin)
+
     const updateVehiculo = useCallback(async (id, data) => {
         setLoading(true);
         setError(null);
@@ -68,7 +68,7 @@ export const useVehiculos = () => {
         }
     }, []);
 
-    // Eliminar vehículo (admin)
+
     const deleteVehiculo = useCallback(async (id) => {
         setLoading(true);
         setError(null);

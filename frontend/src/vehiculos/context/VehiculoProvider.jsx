@@ -8,7 +8,8 @@ export const VehiculoProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Obtener todos los vehículos (admin)
+
+
     const fetchVehiculos = useCallback(async () => {
         setLoading(true);
         setError(null);
@@ -21,7 +22,6 @@ export const VehiculoProvider = ({ children }) => {
             setLoading(false);
         }
     }, []);
-
     // Obtener vehículos disponibles (público)
     const fetchDisponibles = useCallback(async () => {
         setLoading(true);

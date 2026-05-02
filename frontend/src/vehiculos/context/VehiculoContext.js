@@ -1,5 +1,4 @@
 import { createContext } from 'react';
 
-export const VehiculoContext = createContext(null);
+export const VehiculoContext = createContext();
 
-export default VehiculoContext;

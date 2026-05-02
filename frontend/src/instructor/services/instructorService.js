@@ -4,13 +4,13 @@ import api from '../../services/axiosConfig';
 export const instructorService = {
     // Obtener todos los instructores (admin)
     getAll: async () => {
-        const response = await api.get('/api/admin/instructores');
+        const response = await api.get('/api/instructores');
         return response.data;
     },
 
     // Obtener instructores disponibles (público)
     getDisponibles: async () => {
-        const response = await api.get('/api/public/instructores/disponibles');
+        const response = await api.get('/api/instructores/disponibles');
         return response.data;
     },
 
