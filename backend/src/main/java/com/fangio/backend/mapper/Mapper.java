@@ -3,7 +3,8 @@ package com.fangio.backend.mapper;
 import com.fangio.backend.cliente.Cliente;
 import com.fangio.backend.cliente.ClienteDTO;
 import com.fangio.backend.instructor.Instructor;
-import com.fangio.backend.instructor.InstructorDTO;
+import com.fangio.backend.instructor.RequestInstructorDTO;
+import com.fangio.backend.instructor.ResponseInstructorDTO;
 import com.fangio.backend.reserva.Reserva;
 import com.fangio.backend.reserva.ReservaDTO;
 import com.fangio.backend.vehiculo.Vehiculo;
@@ -17,6 +18,7 @@ public class Mapper {
 
     public static VehiculoDTO toDTO(Vehiculo vehiculo) {
         return VehiculoDTO.builder()
+                .id(vehiculo.getId())
                 .marca(vehiculo.getMarca())
                 .modelo(vehiculo.getModelo())
                 .patente(vehiculo.getPatente())
@@ -86,8 +88,8 @@ public class Mapper {
     /*
      * Mapeos de Instructores
      */
-    public static InstructorDTO toDTO(Instructor instructor) {
-        return InstructorDTO.builder()
+    public static ResponseInstructorDTO toDTO(Instructor instructor) {
+        return ResponseInstructorDTO.builder()
                 .nombre(instructor.getNombre())
                 .apellido(instructor.getApellido())
                 .email(instructor.getEmail())
@@ -95,12 +97,12 @@ public class Mapper {
                 .build();
     }
 
-    public static Instructor toEntity(InstructorDTO instructorDTO) {
+    public static Instructor toEntity(RequestInstructorDTO requestDTO) {
         return Instructor.builder()
-                .nombre(instructorDTO.getNombre())
-                .apellido(instructorDTO.getApellido())
-                .email(instructorDTO.getEmail())
-                .telefono(instructorDTO.getTelefono())
+                .nombre(requestDTO.getNombre())
+                .apellido(requestDTO.getApellido())
+                .email(requestDTO.getEmail())
+                .telefono(requestDTO.getTelefono())
                 .build();
     }
 }
