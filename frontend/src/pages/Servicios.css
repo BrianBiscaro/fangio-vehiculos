@@ -1,0 +1,214 @@
+/* Servicios - Estilos Responsivos con Imágenes */
+
+.servicios-section {
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    min-height: 100vh;
+    background: var(--color-bg);
+}
+
+.servicios-titulo {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    color: var(--color-text-h);
+    position: relative;
+}
+
+.servicios-titulo::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--color-primary);
+    margin: var(--spacing-md) auto 0;
+    border-radius: var(--radius-full);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servicio-card {
+    background: var(--color-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.servicio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.servicio-imagen {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.servicio-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.servicio-card:hover .servicio-imagen img {
+    transform: scale(1.05);
+}
+
+.servicio-contenido {
+    padding: var(--spacing-xl);
+}
+
+.servicio-contenido h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-h);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.servicio-contenido h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: var(--radius-full);
+}
+
+.servicio-contenido p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .servicios-section {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .servicios-titulo {
+        font-size: 1.8rem;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .servicio-imagen {
+        height: 200px;
+    }
+
+    .servicio-contenido {
+        padding: var(--spacing-lg);
+    }
+
+    .servicio-contenido h3 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicios-titulo {
+        font-size: 1.5rem;
+    }
+
+    .servicio-imagen {
+        height: 180px;
+    }
+
+    .servicio-contenido {
+        padding: var(--spacing-md);
+    }
+
+    .servicio-contenido h3 {
+        font-size: 1.1rem;
+    }
+
+    .servicio-contenido p {
+        font-size: 0.95rem;
+    }
+}
+
+text-align: center;
+margin-bottom: var(--spacing-2xl);
+color: var(--color-text-h);
+}
+
+.servicio-card {
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.servicio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.servicio-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #servicios {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    #servicios h1 {
+        font-size: 1.8rem;
+    }
+
+    .servicio-card {
+        padding: var(--spacing-lg);
+    }
+
+    .servicio-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .servicio-card p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #servicios h1 {
+        font-size: 1.5rem;
+    }
+
+    .servicio-card {
+        padding: var(--spacing-md);
+    }
+
+    .servicio-card h3 {
+        font-size: 1.1rem;
+    }
+}

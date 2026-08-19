@@ -1,0 +1,112 @@
+/* Contacto - Estilos Responsivos */
+
+#contacto {
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    min-height: 60vh;
+    background: var(--color-bg-secondary);
+}
+
+#contacto h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-h);
+}
+
+#contacto>p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-2xl);
+    color: var(--color-text);
+}
+
+.contacto-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-h);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    background: var(--color-bg);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contacto-form button[type="submit"] {
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    align-self: center;
+    min-width: 200px;
+}
+
+.contacto-form button[type="submit"]:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #contacto {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    #contacto h2 {
+        font-size: 1.8rem;
+    }
+
+    #contacto>p {
+        font-size: 1rem;
+    }
+
+    .contacto-form {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    #contacto h2 {
+        font-size: 1.5rem;
+    }
+
+    .contacto-form button[type="submit"] {
+        width: 100%;
+    }
+}

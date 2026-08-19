@@ -1,0 +1,59 @@
+@startuml API
+
+    class Instructor {
+        -Long id
+        -String nombre
+        -String apellido
+        -String telefono
+        -User user
+        -List<Reserva> reservas
+        -List<Date> disponibilidad
+    }
+
+    class User {
+        -Long id
+        -String username
+        -String password
+        -String email
+        -Role role 
+    }
+
+    enum Role {
+        ADMIN,
+        INSTRUCTOR,
+    }
+
+    User "1" -- "1" Role : tiene
+    
+    Instructor "1" -- "1" User : tiene
+    Instructor "1" -- "0..*" Reserva : da
+
+    class Reserva{
+        -Long id
+        -Date fecha
+        -Long instructorId
+        -Long clienteId
+        -Long vehiculoId
+        -Long idPago
+    }
+
+    class Cliente{
+        -Long id
+        -String nombre
+        -String apellido
+        -String telefono
+        -String email
+    }
+
+    class Vehiculo{
+        -Long id
+        -String marca
+        -String modelo
+        -String patente
+        -String color
+        -int anio
+        -String tipo
+        -Boolean disponible
+    }
+
+@enduml

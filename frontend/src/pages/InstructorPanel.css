@@ -1,0 +1,197 @@
+/* Instructor Panel - Estilos Responsivos */
+
+.instructor-panel {
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    min-height: calc(100vh - 70px);
+    background: var(--color-bg-secondary);
+}
+
+.instructor-panel h1 {
+    font-size: 2rem;
+    color: var(--color-text-h);
+    margin-bottom: var(--spacing-sm);
+}
+
+.instructor-panel .bienvenida {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 2px solid var(--color-border);
+    max-width: 600px;
+}
+
+.tabs button {
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: transparent;
+    color: var(--color-text);
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-bottom: -2px;
+}
+
+.tabs button:hover {
+    color: var(--color-primary);
+}
+
+.tabs button.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+/* Reservas List */
+.reservas-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+}
+
+.reserva-card {
+    background: var(--color-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--color-primary);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.reserva-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.reserva-card h3 {
+    font-size: 1.1rem;
+    color: var(--color-text-h);
+    margin-bottom: var(--spacing-md);
+}
+
+.reserva-card p {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.5;
+}
+
+.reserva-card .estado {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: var(--spacing-sm);
+}
+
+.reserva-card .estado.pendiente {
+    background: var(--color-warning-light);
+    color: var(--color-warning);
+}
+
+.reserva-card .estado.confirmado {
+    background: var(--color-success-light);
+    color: var(--color-success);
+}
+
+.reserva-card .estado.completado {
+    background: var(--color-info-light);
+    color: var(--color-info);
+}
+
+.reserva-card .estado.cancelado {
+    background: var(--color-error-light);
+    color: var(--color-error);
+}
+
+/* Acciones */
+.acciones {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.acciones button {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+}
+
+.acciones button:first-child {
+    background: var(--color-success);
+    color: white;
+}
+
+.acciones button:first-child:hover {
+    background: #15803d;
+}
+
+.acciones .btn-danger {
+    background: var(--color-error);
+    color: white;
+}
+
+.acciones .btn-danger:hover {
+    background: #b91c1c;
+}
+
+/* Empty state */
+.reservas-list .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-2xl);
+    color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .instructor-panel {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .instructor-panel h1 {
+        font-size: 1.5rem;
+    }
+
+    .tabs {
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .tabs button {
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-md);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .tabs button.active {
+        background: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+    }
+
+    .reservas-list {
+        grid-template-columns: 1fr;
+    }
+
+    .acciones {
+        flex-direction: column;
+    }
+}

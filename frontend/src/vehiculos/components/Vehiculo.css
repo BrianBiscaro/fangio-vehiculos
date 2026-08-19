@@ -1,0 +1,288 @@
+/* Vehiculo Components Styles */
+
+/* Vehiculos Page (Admin) */
+.vehiculos-page {
+    padding: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vehiculos-page h1 {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.vehiculos-page>button {
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    margin-bottom: 1.5rem;
+}
+
+.vehiculos-page>button:hover {
+    background: var(--color-primary-dark);
+}
+
+/* Vehiculos Grid */
+.vehiculos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.vehiculo-card {
+    background: var(--color-bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.vehiculo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.vehiculo-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: var(--color-text);
+    font-size: 1.125rem;
+}
+
+.vehiculo-card p {
+    margin: 0.25rem 0;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+.vehiculo-card .estado {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.vehiculo-card .estado-disponible {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.vehiculo-card .estado-en-uso {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.vehiculo-card .estado-mantenimiento {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.vehiculo-card .estado-no-disponible {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Acciones */
+.vehiculo-card .acciones {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.vehiculo-card .acciones button {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.vehiculo-card .acciones button:first-child {
+    background: var(--color-primary);
+    color: white;
+}
+
+.vehiculo-card .acciones button:first-child:hover {
+    background: var(--color-primary-dark);
+}
+
+.vehiculo-card .acciones button.btn-danger {
+    background: var(--color-error);
+    color: white;
+}
+
+.vehiculo-card .acciones button.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* Nuevo Vehiculo Page */
+.nuevo-vehiculo-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.nuevo-vehiculo-page h1 {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.vehiculo-form {
+    background: var(--color-bg-card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.vehiculo-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.vehiculo-form .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.vehiculo-form .form-group input,
+.vehiculo-form .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color var(--transition-fast);
+}
+
+.vehiculo-form .form-group input:focus,
+.vehiculo-form .form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.vehiculo-form button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    margin-top: 1rem;
+}
+
+.vehiculo-form button[type="submit"]:hover:not(:disabled) {
+    background: var(--color-primary-dark);
+}
+
+.vehiculo-form button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Error State */
+.vehiculos-page .error {
+    padding: 1rem;
+    background: #fee2e2;
+    color: #991b1b;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Loading State */
+.vehiculos-page .loading,
+.nuevo-vehiculo-page .loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-text-secondary);
+}
+
+/* Empty State */
+.vehiculos-grid:empty::after {
+    content: "No hay vehículos";
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-text-secondary);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+    .vehiculos-page {
+        padding: 1.5rem;
+    }
+
+    .vehiculos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+
+    .vehiculo-card {
+        padding: 1.25rem;
+    }
+
+    .nuevo-vehiculo-page {
+        padding: 1.5rem;
+    }
+
+    .vehiculo-form {
+        padding: 1.25rem;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 640px) {
+    .vehiculos-page {
+        padding: 1rem;
+    }
+
+    .vehiculos-page h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .vehiculos-page>button {
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    .vehiculos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vehiculo-card .acciones {
+        flex-direction: column;
+    }
+
+    .vehiculo-card .acciones button {
+        width: 100%;
+    }
+
+    .nuevo-vehiculo-page {
+        padding: 1rem;
+    }
+
+    .vehiculo-form {
+        padding: 1rem;
+    }
+
+    .vehiculo-form button[type="submit"] {
+        width: 100%;
+    }
+}

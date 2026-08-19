@@ -1,0 +1,233 @@
+/* Pago Components Styles */
+
+/* Pago Page (Público) */
+.pago-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+.pago-page h1 {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.pago-page .resumen {
+    background: var(--color-bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: 1.5rem;
+}
+
+.pago-page .resumen h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-h);
+}
+
+.pago-page .resumen p {
+    margin: 0.5rem 0;
+    color: var(--color-text-secondary);
+}
+
+.pago-page .resumen .monto {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.pago-page button {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-bottom: 0.75rem;
+}
+
+.pago-page .btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.pago-page .btn-primary:hover:not(:disabled) {
+    background: var(--color-primary-dark);
+}
+
+.pago-page .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pago-page .btn-secondary {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.pago-page .btn-secondary:hover {
+    background: var(--color-bg-hover);
+}
+
+/* Pagos Admin Page */
+.pagos-admin-page {
+    padding: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pagos-admin-page h1 {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.pagos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.pago-card {
+    background: var(--color-bg-card);
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+}
+
+.pago-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: var(--color-text-h);
+}
+
+.pago-card p {
+    margin: 0.25rem 0;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+.pago-card .estado {
+    font-weight: 600;
+}
+
+.pago-card .estado-pendiente {
+    color: var(--color-warning);
+}
+
+.pago-card .estado-aprobado {
+    color: var(--color-success);
+}
+
+.pago-card .estado-rechazado {
+    color: var(--color-error);
+}
+
+.pago-card button {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.pago-card button:hover {
+    background: var(--color-primary-dark);
+}
+
+/* Loading State */
+.pago-page .loading,
+.pagos-admin-page .loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-text-secondary);
+}
+
+/* Empty State */
+.pagos-list:empty::after {
+    content: "No hay pagos";
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-text-secondary);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+    .pago-page {
+        padding: var(--spacing-lg);
+    }
+
+    .pago-page .resumen {
+        padding: 1.25rem;
+    }
+
+    .pagos-admin-page {
+        padding: var(--spacing-lg);
+    }
+
+    .pagos-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .pago-card {
+        padding: 1.25rem;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 640px) {
+    .pago-page {
+        padding: var(--spacing-md);
+    }
+
+    .pago-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .pago-page .resumen {
+        padding: 1rem;
+    }
+
+    .pago-page .resumen h2 {
+        font-size: 1.1rem;
+    }
+
+    .pago-page .resumen .monto {
+        font-size: 1.1rem;
+    }
+
+    .pagos-admin-page {
+        padding: var(--spacing-md);
+    }
+
+    .pagos-admin-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .pagos-list {
+        grid-template-columns: 1fr;
+    }
+
+    .pago-card {
+        padding: 1rem;
+    }
+
+    .pago-card button {
+        width: 100%;
+    }
+}
